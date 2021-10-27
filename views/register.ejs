@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Registro</title>
+  </head>
+  <body>
+    <h1>Registrarse</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="shadow-lg p-3 mb-5 mt-4 bg-body rounded">
+                <form action= "/register" method="post" class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-4">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" required>
+                        <div class="valid-feedback">Bien!!</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email" class="form-label">Correo</label>
+                        <input type="email" name="correo" id="correo" class="form-control" required>
+                        <div class="valid-feedback">Bien!!</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="number" name="telefono" id="telefono" class="form-control" required>
+                        <div class="valid-feedback">Bien!!</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" name="direccion" id="direccion" class="form-control" required>
+                        <div class="valid-feedback">Bien!!</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="col-md-3">
+                        <!--<label for="genero">Genero</label>
+                        <select class="form-select" name=genero" id="genero" required>
+                            
+                            
+                            <option value="masculino" selected>Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                        <div class="valid-feedback">Bien!!</div>
+                        <div class="invalid-feedback">Incorrecto</div>-->
+                        <label for="genero">Genero</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="genero" id="genero" checked>
+                                <label class="form-check-label" for="genero">
+                                    Masculino
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="genero" id="genero" >
+                                <label class="form-check-label" for="genero">
+                                    Femenino
+                                </label>
+                          </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="password" class="form-label">Contraceña</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                        <div class="valid-feedback">Bien!!</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <button type="submit" class="btn btn-warning fw-bold">Enviar</button>
+                    <a href="/" class="btn btn-primary fw-bold">Salir</a>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if(typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text:  '<%= alertMessage %>',
+                icon:  '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(()=>{
+                window.location='/ <%= ruta %>'
+            })
+        </script>
+    <% } %>
+   
+  </body>
+</html>
